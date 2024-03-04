@@ -5,6 +5,7 @@
     "beforeDevCommand": "npm run dev",
     "devPath": "http://localhost:5173",
     "distDir": "../dist"
+
   },
   "package": {
     "productName": "vite-project",
