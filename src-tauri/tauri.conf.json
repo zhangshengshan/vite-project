@@ -57,10 +57,10 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 600,
+        "height": 960,
         "resizable": true,
-        "title": "vite-project",
-        "width": 800
+        "title": "Excalidraw",
+        "width": 1080
       }
     ]
   }
