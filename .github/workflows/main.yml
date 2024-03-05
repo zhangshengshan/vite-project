@@ -55,7 +55,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.VITE }}
           GITHUB_SHA: ${{ github.sha }}
         with:
-          tagName: ${{ github.ref_name }} # This only works if your workflow triggers on new tags.
+          tagName: |
+            ${{ github.ref_name }} Commit: ${{ env.GITHUB_SHA }}
           releaseName: |
             Excalidraw Desktop v__VERSION__ - Commit: ${{ env.GITHUB_SHA }} - Branch: ${{ steps.get_branch.outputs.BRANCH_NAME }}
           releaseBody: 'See the assets to download and install this version.'
