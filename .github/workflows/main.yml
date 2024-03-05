@@ -44,21 +44,36 @@ jobs:
         # If you don't have `beforeBuildCommand` configured you may want to build your frontend here too.
         run: npm install # Change this to npm, yarn or pnpm.
 
+
       - name: Build the app
         uses: tauri-apps/tauri-action@v0
-
         env:
           GITHUB_TOKEN: ${{ secrets.VITE }}
           GITHUB_SHA: ${{ github.sha }}
           GITHUB_REF: ${{ github.ref }}
         with:
           tagName: ${{ github.ref_name }} # This only works if your workflow triggers on new tags.
-#          releaseName: 'Excalidraw Desktop v__VERSION__' # tauri-action replaces \_\_VERSION\_\_ with the app version.
           releaseName: |
-            Excalidraw Desktop v__VERSION__ - Commit: ${{ env.GITHUB_SHA }} - Branch: ${GITHUB_REF/refs\/heads\//}
+            Excalidraw Desktop v__VERSION__-${{ env.GITHUB_SHA }}-${{ env.GITHUB_REF##refs/heads/ }}
           releaseBody: 'See the assets to download and install this version.'
           releaseDraft: true
           prerelease: false
+
+#      - name: Build the app
+#        uses: tauri-apps/tauri-action@v0
+#
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.VITE }}
+#          GITHUB_SHA: ${{ github.sha }}
+#          GITHUB_REF: ${{ github.ref }}
+#        with:
+#          tagName: ${{ github.ref_name }} # This only works if your workflow triggers on new tags.
+##          releaseName: 'Excalidraw Desktop v__VERSION__' # tauri-action replaces \_\_VERSION\_\_ with the app version.
+#          releaseName: |
+#            Excalidraw Desktop v__VERSION__ - Commit: ${{ env.GITHUB_SHA }} - Branch: ${GITHUB_REF/refs\/heads\//}
+#          releaseBody: 'See the assets to download and install this version.'
+#          releaseDraft: true
+#          prerelease: false
       
       - name: Set OS suffix
         id: os_suffix
