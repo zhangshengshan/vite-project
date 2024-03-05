@@ -30,8 +30,7 @@ export default {
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
 
 
-
-
+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
 ## 问题1 
 
 这个错误提示是说，Tauri无法找到你的web资源，可能是因为你忘记构建你的web应用了。你的`distDir`被设置为`"./dist"`。
