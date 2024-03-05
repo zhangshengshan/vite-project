@@ -55,6 +55,17 @@ jobs:
           releaseBody: 'See the assets to download and install this version.'
           releaseDraft: true
           prerelease: false
+      
+      - name: Set OS suffix
+        id: os_suffix
+        run: |
+          if [[ "${{ runner.os }}" == "Windows" ]]; then
+            echo "::set-output name=suffix::win"
+          elif [[ "${{ runner.os }}" == "macOS" ]]; then
+            echo "::set-output name=suffix::macos"
+          else
+            echo "::set-output name=suffix::linux"
+          fi
 
 
       
@@ -64,13 +75,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.VITE }}
         with:
-          tag_name: ${{ github.run_number }}
-          release_name: Release ${{ github.run_number }}
+          tag_name: ${{ github.run_number }}-${{ steps.os_suffix.outputs.suffix }}
+          release_name: Release-${{ github.run_number }}-${{ steps.os_suffix.outputs.suffix }}
           draft: false
           prerelease: false
 
 
 
+
+    
 
       - name: Upload Windows Release Asset
         if: matrix.platform == 'windows-latest'
