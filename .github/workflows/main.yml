@@ -51,7 +51,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.VITE }}
         with:
           tagName: ${{ github.ref_name }} # This only works if your workflow triggers on new tags.
-          releaseName: 'Excalidraw Desktop v__VERSION__' # tauri-action replaces \_\_VERSION\_\_ with the app version.
+#          releaseName: 'Excalidraw Desktop v__VERSION__' # tauri-action replaces \_\_VERSION\_\_ with the app version.
+          releaseName: |
+            Excalidraw Desktop v__VERSION__ - Commit: ${{ env.GITHUB_SHA }} - Branch: ${GITHUB_REF/refs\/heads\//}
           releaseBody: 'See the assets to download and install this version.'
           releaseDraft: true
           prerelease: false
