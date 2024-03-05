@@ -49,6 +49,8 @@ jobs:
 
         env:
           GITHUB_TOKEN: ${{ secrets.VITE }}
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_REF: ${{ github.ref }}
         with:
           tagName: ${{ github.ref_name }} # This only works if your workflow triggers on new tags.
 #          releaseName: 'Excalidraw Desktop v__VERSION__' # tauri-action replaces \_\_VERSION\_\_ with the app version.
