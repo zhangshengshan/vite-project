@@ -1,8 +1,8 @@
 name: Release
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - 'main'
   workflow_dispatch:
 
 jobs:
@@ -56,19 +56,29 @@ jobs:
           releaseDraft: true
           prerelease: false
       
+#      - name: Set OS suffix
+#        id: os_suffix
+#        run: |
+#          if [[ "${{ runner.os }}" == "Windows" ]]; then
+#            echo "::set-output name=suffix::win"
+#          elif [[ "${{ runner.os }}" == "macOS" ]]; then
+#            echo "::set-output name=suffix::macos"
+#          else
+#            echo "::set-output name=suffix::linux"
+#          fi
+#
+
       - name: Set OS suffix
         id: os_suffix
         run: |
-          if [[ "${{ runner.os }}" == "Windows" ]]; then
+          if [[ "${{ matrix.platform }}" == "windows-latest" ]]; then
             echo "::set-output name=suffix::win"
-          elif [[ "${{ runner.os }}" == "macOS" ]]; then
+          elif [[ "${{ matrix.platform }}" == "macos-latest" ]]; then
             echo "::set-output name=suffix::macos"
           else
             echo "::set-output name=suffix::linux"
           fi
 
-
-      
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -79,11 +89,6 @@ jobs:
           release_name: Release-${{ github.run_number }}-${{ steps.os_suffix.outputs.suffix }}
           draft: false
           prerelease: false
-
-
-
-
-    
 
       - name: Upload Windows Release Asset
         if: matrix.platform == 'windows-latest'
@@ -103,8 +108,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.VITE }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./src-tauri/target/release/bundle/msi/vite-project_0.1.0_x64_en-US.msi
-          asset_name: vite-project_0.1.0_x64_en-US.msi
+          asset_path: /Users/runner/work/vite-project/vite-project/src-tauri/target/release/bundle/dmg/vite-project_0.1.0_x64.dmg
+          asset_name: vite-project_0.1.0_x64.dmg
           asset_content_type: application/octet-stream
       
       - name: Upload Linux Release Asset
@@ -117,3 +122,5 @@ jobs:
           asset_path: ./src-tauri/target/release/bundle/deb/vite-project_0.1.0_amd64.deb
           asset_name: vite-project_0.1.0_amd64.deb
           asset_content_type: application/octet-stream
+
+
