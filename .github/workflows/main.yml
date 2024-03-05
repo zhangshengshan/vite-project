@@ -64,8 +64,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.VITE }}
         with:
-          tag_name: ${{ github.ref[10:] }}
-          release_name: Release ${{ github.ref[10:] }}
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
           draft: false
           prerelease: false
 
