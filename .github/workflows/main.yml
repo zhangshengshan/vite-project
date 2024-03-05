@@ -70,6 +70,7 @@ jobs:
 
       - name: Set OS suffix
         id: os_suffix
+        shell: bash
         run: |
           if [[ "${{ matrix.platform }}" == "windows-latest" ]]; then
             echo "::set-output name=suffix::win"
