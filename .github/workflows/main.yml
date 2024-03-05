@@ -74,6 +74,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.VITE }}
         with:
+#          tag_name: ${{ github.run_number }}-${{ steps.os_suffix.outputs.suffix }}
+#          release_name: Release-${{ github.run_number }}-${{ steps.os_suffix.outputs.suffix }}
           tag_name: ${{ github.run_number }}-${{ steps.os_suffix.outputs.suffix }}
           release_name: Release-${{ github.run_number }}-${{ steps.os_suffix.outputs.suffix }}
           draft: false
