@@ -33,6 +33,7 @@ export default {
 
 
 ## 问题1 
+
 这个错误提示是说，Tauri无法找到你的web资源，可能是因为你忘记构建你的web应用了。你的`distDir`被设置为`"./dist"`。
 
 首先，你需要确保你已经运行了`npm run build`命令来构建你的Vite应用。这个命令会将你的应用编译并输出到`dist`目录中。
