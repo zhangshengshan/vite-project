@@ -55,3 +55,36 @@ jobs:
           releaseBody: 'See the assets to download and install this version.'
           releaseDraft: true
           prerelease: false
+
+      - name: Upload Windows Release Asset
+        if: matrix.platform == 'windows-latest'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.VITE }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./src-tauri/target/release/bundle/nsis/vite-project_0.1.0_x64-setup.exe
+          asset_name: vite-project_0.1.0_x64-setup.exe
+          asset_content_type: application/octet-stream
+      
+      - name: Upload MacOS Release Asset
+        if: matrix.platform == 'macos-latest'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.VITE }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./src-tauri/target/release/bundle/msi/vite-project_0.1.0_x64_en-US.msi
+          asset_name: vite-project_0.1.0_x64_en-US.msi
+          asset_content_type: application/octet-stream
+      
+      - name: Upload Linux Release Asset
+        if: matrix.platform == 'ubuntu-20.04'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.VITE }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./src-tauri/target/release/bundle/deb/vite-project_0.1.0_amd64.deb
+          asset_name: vite-project_0.1.0_amd64.deb
+          asset_content_type: application/octet-stream
