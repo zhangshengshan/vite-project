@@ -8,7 +8,7 @@
 
   },
   "package": {
-    "productName": "vite-project",
+    "productName": "Excalidraw",
     "version": "0.1.1"
   },
   "tauri": {
