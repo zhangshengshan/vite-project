@@ -79,7 +79,7 @@ const App = () => {
                         text="Users"
                         icon={<IconRadio className={styles.iconRadio}/>}
                         className={styles.navItem5}
-                        // onClick={() => navigate('/users')}
+                        onClick={() => navigate('/users')}
 
                     />
                 </Nav>
