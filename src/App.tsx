@@ -3,8 +3,11 @@ import { Nav, Avatar, Tabs, TabPane } from '@douyinfe/semi-ui';
 import { IconSemiLogo, IconFeishuLogo, IconHelpCircle, IconBell } from '@douyinfe/semi-icons';
 import { IconIntro, IconHeart, IconCalendar, IconCheckbox, IconRadio, IconList, IconToast } from '@douyinfe/semi-icons-lab';
 import styles from './index.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 const App = () => {
+    const navigate = useNavigate();
+
     return (
         <div className={styles.rootSidenavTab}>
             <Nav
@@ -34,7 +37,7 @@ const App = () => {
                 }
                 className={styles.nav}
             >
-                <Nav.Item itemKey="Home" text="Home" />
+                <Nav.Item itemKey="Home" text="Home" onClick={() => navigate.push('/home')} />
                 <Nav.Item itemKey="Project" text="Project" />
                 <Nav.Item itemKey="Board" text="Board" />
                 <Nav.Item itemKey="Forms" text="Forms" />
@@ -52,40 +55,32 @@ const App = () => {
                         text="Home"
                         icon={<IconIntro className={styles.iconIntro} />}
                         className={styles.navItem}
+                        onClick={() => navigate('/home')}
                     />
                     <Nav.Item
                         itemKey="Dashboard"
                         text="Dashboard"
                         icon={<IconHeart className={styles.iconHeart} />}
                         className={styles.navItem1}
+                        onClick={() => navigate('/dashboard')}
                     />
                     <Nav.Item
                         itemKey="Project"
                         text="Project"
                         icon={<IconCalendar className={styles.iconCalendar} />}
                         className={styles.navItem2}
+                        onClick={() => navigate('/project')}
                     />
                     <Nav.Item
                         itemKey="Users"
                         text="Users"
                         icon={<IconRadio className={styles.iconRadio} />}
                         className={styles.navItem5}
-                    />
-                    <Nav.Item
-                        itemKey="Support"
-                        text="Support"
-                        icon={<IconList className={styles.iconList} />}
-                        className={styles.navItem6}
-                    />
-                    <Nav.Item
-                        itemKey="Settings"
-                        text="Settings"
-                        icon={<IconToast className={styles.iconToast} />}
-                        className={styles.navItem7}
+                        onClick={() => navigate('/users')}
                     />
                 </Nav>
                 <div className={styles.mainRight}>
-                    <p className={styles.item}>Reporting</p>
+                    <p className={styles.item}>Page</p>
                     <div className={styles.content}>
                         <Tabs
                             tabPosition="top"
