@@ -1,9 +1,10 @@
 import React from 'react';
 import { Excalidraw } from "@excalidraw/excalidraw";
+import styles from './DashBoardPage.module.scss';
 
 const DashBoardPage = () => {
     return (
-        <div style={{ height: '100vh', width: '100vw' }}>
+        <div className={styles.dashboard}>
             <Excalidraw />
         </div>
     );

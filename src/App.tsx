@@ -79,24 +79,17 @@ const App = () => {
                         text="Users"
                         icon={<IconRadio className={styles.iconRadio}/>}
                         className={styles.navItem5}
-                        onClick={() => navigate('/users')}
+                        // onClick={() => navigate('/users')}
 
                     />
                 </Nav>
-                <div className={styles.mainRight}>
-                    <p className={styles.item}>Page</p>
-                    <div className={styles.content}>
-                        <div className={styles.yourContent}>
-                            <p className={styles.yourContentHere}>
-                                <Routes>
-                                    <Route path="/home" element={<HomePage/>}/>
-                                    <Route path="/dashboard" element={<DashBoardPage/>}/>
-                                    <Route path="/forms" element={<UserPage/>}/>
-                                    <Route path="/users" element={<ExternalPage/>}/>
-                                </Routes>
-                            </p>
-                        </div>
-                    </div>
+                <div id="main_panal" className={styles.mainRight}>
+                    <Routes>
+                        <Route path="/home" element={<HomePage/>}/>
+                        <Route path="/dashboard" element={<DashBoardPage/>}/>
+                        <Route path="/forms" element={<UserPage/>}/>
+                        <Route path="/users" element={<ExternalPage/>}/>
+                    </Routes>
                 </div>
             </div>
         </div>
