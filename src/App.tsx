@@ -37,10 +37,10 @@ const App = () => {
                 }
                 className={styles.nav}
             >
-                <Nav.Item itemKey="Home" text="Home" onClick={() => navigate.push('/home')} />
-                <Nav.Item itemKey="Project" text="Project" />
-                <Nav.Item itemKey="Board" text="Board" />
-                <Nav.Item itemKey="Forms" text="Forms" />
+                <Nav.Item itemKey="Home" text="Home" onClick={() => navigate('/home')} />
+                <Nav.Item itemKey="Project" text="Project" onClick={()=> navigate("/project")} />
+                <Nav.Item itemKey="Board" text="Board" onClick={()=>navigate("/board")}/>
+                <Nav.Item itemKey="Forms" text="Forms" onClick={()=>navigate("/forms")}/>
             </Nav>
             <div className={styles.main}>
                 <Nav
