@@ -1,6 +1,8 @@
 
 import './App.css'
 import { Excalidraw  } from "@excalidraw/excalidraw";
+import { Button  } from 'antd';
+
 
 function App() {
 
@@ -8,6 +10,7 @@ function App() {
     <>
       <div id="board" >
         <Excalidraw />
+        <Button/>
       </div>
     </>
   )
