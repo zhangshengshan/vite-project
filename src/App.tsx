@@ -66,18 +66,6 @@ const App = () => {
                         className={styles.navItem2}
                     />
                     <Nav.Item
-                        itemKey="Tasks"
-                        text="Tasks"
-                        icon={<IconCheckbox className={styles.iconCheckbox} />}
-                        className={styles.navItem3}
-                    />
-                    <Nav.Item
-                        itemKey="Reporting"
-                        text="Reporting"
-                        icon={<IconCalendar className={styles.iconCalendar} />}
-                        className={styles.navItem4}
-                    />
-                    <Nav.Item
                         itemKey="Users"
                         text="Users"
                         icon={<IconRadio className={styles.iconRadio} />}
@@ -108,11 +96,6 @@ const App = () => {
                             <TabPane tab="Detail" itemKey="1" />
                             <TabPane tab="Profile" itemKey="2" />
                             <TabPane tab="Security" itemKey="3" />
-                            <TabPane tab="Billing" itemKey="4" />
-                            <TabPane tab="Email" itemKey="5" />
-                            <TabPane tab="Notifications" itemKey="6" />
-                            <TabPane tab="Integrations" itemKey="7" />
-                            <TabPane tab="API" itemKey="8" />
                         </Tabs>
                         <div className={styles.yourContent}>
                             <p className={styles.yourContentHere}>Your Content Here</p>
