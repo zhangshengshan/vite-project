@@ -1,10 +1,10 @@
-// src/pages/HomePage.tsx
+import React from 'react';
+import { Excalidraw } from "@excalidraw/excalidraw";
 
 const DashBoardPage = () => {
     return (
-        <div>
-            <h1>DashBoardPage</h1>
-            <p>Welcome to the home page!</p>
+        <div style={{ height: '100vh', width: '100vw' }}>
+            <Excalidraw />
         </div>
     );
 }
