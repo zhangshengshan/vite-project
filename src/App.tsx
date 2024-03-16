@@ -4,9 +4,12 @@ import {IconIntro, IconHeart, IconCalendar, IconRadio} from '@douyinfe/semi-icon
 import styles from './index.module.scss';
 import {Route, Routes, useNavigate} from 'react-router-dom';
 import HomePage from "./pages/HomePage.tsx";
-import UserPage from "./pages/UserPage.tsx";
 import DashBoardPage from "./pages/DashBoardPage.tsx";
 import ExternalPage from "./pages/ExternalPage.tsx";
+import React from "react";
+import ProjectPage from "./pages/ProjectPage.tsx";
+
+
 
 const App = () => {
     const navigate = useNavigate();
@@ -87,7 +90,7 @@ const App = () => {
                     <Routes>
                         <Route path="/home" element={<HomePage/>}/>
                         <Route path="/dashboard" element={<DashBoardPage/>}/>
-                        <Route path="/project" element={<UserPage/>}/>
+                        <Route path="/project" element={<ProjectPage/>}/>
                         <Route path="/users" element={<ExternalPage/>}/>
                     </Routes>
                 </div>
