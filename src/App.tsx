@@ -79,9 +79,8 @@ const App = () => {
                         text="Users"
                         icon={<IconRadio className={styles.iconRadio}/>}
                         className={styles.navItem5}
-                        // onClick={() => navigate('/users')}
+                        onClick={() => navigate('/users')}
 
-                        onClick={() => window.open('http://www.baidu.com', '_blank')}
                     />
                 </Nav>
                 <div className={styles.mainRight}>
