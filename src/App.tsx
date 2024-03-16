@@ -3,7 +3,10 @@ import { Nav, Avatar, Tabs, TabPane } from '@douyinfe/semi-ui';
 import { IconSemiLogo, IconFeishuLogo, IconHelpCircle, IconBell } from '@douyinfe/semi-icons';
 import { IconIntro, IconHeart, IconCalendar, IconCheckbox, IconRadio, IconList, IconToast } from '@douyinfe/semi-icons-lab';
 import styles from './index.module.scss';
-import { useNavigate } from 'react-router-dom';
+import {Route, Routes, useNavigate} from 'react-router-dom';
+import HomePage from "./pages/HomePage.tsx";
+import UserPage from "./pages/UserPage.tsx";
+import DashBoardPage from "./pages/DashBoardPage.tsx";
 
 const App = () => {
     const navigate = useNavigate();
@@ -82,18 +85,15 @@ const App = () => {
                 <div className={styles.mainRight}>
                     <p className={styles.item}>Page</p>
                     <div className={styles.content}>
-                        <Tabs
-                            tabPosition="top"
-                            defaultActiveKey="1"
-                            size="small"
-                            className={styles.tabs}
-                        >
-                            <TabPane tab="Detail" itemKey="1" />
-                            <TabPane tab="Profile" itemKey="2" />
-                            <TabPane tab="Security" itemKey="3" />
-                        </Tabs>
                         <div className={styles.yourContent}>
-                            <p className={styles.yourContentHere}>Your Content Here</p>
+                            <p className={styles.yourContentHere}>
+                                <Routes>
+                                    <Route path="/home" element={<HomePage />} />
+                                    <Route path="/dashboard" element={<DashBoardPage/>} />
+                                    <Route path="/forms" element={<UserPage/>} />
+                                    <Route path="/users" element={<UserPage/>} />
+                                </Routes>
+                            </p>
                         </div>
                     </div>
                 </div>
