@@ -22,7 +22,8 @@ const ProjectPage = () => {
         {
             title: 'icon',
             dataIndex: 'nameIconSrc',
-            render: (text, record) => <img src={record.nameIconSrc} alt={record.name} style={{width: '50px', height: '50px'}}/>
+            render: (text, record) => <img src={record.nameIconSrc} alt={record.name}
+                                           style={{width: '20px', height: '20px'}}/>
         }
 
     ];
