@@ -1,4 +1,4 @@
-import {Table} from "@douyinfe/semi-ui";
+import {Divider, Table} from "@douyinfe/semi-ui";
 
 const ProjectPage = () => {
     const columns = [
@@ -18,6 +18,13 @@ const ProjectPage = () => {
             title: '更新日期',
             dataIndex: 'updateTime',
         },
+
+        {
+            title: 'icon',
+            dataIndex: 'nameIconSrc',
+            render: (text, record) => <img src={record.nameIconSrc} alt={record.name} style={{width: '50px', height: '50px'}}/>
+        }
+
     ];
     const data = [
         {
@@ -49,7 +56,12 @@ const ProjectPage = () => {
         },
     ];
 
-    return (<Table columns={columns} dataSource={data} pagination={false}/>
+    return (
+        <div>
+            <Divider></Divider>
+            <Table columns={columns} dataSource={data} pagination={false}/>
+            <Divider></Divider>
+        </div>
     )
 
 }
