@@ -35,17 +35,21 @@ const LoginPage = ({setIsLoggedIn, onLoginSuccess}) => {
         <div className={styles.loginPage}>
 
             <form onSubmit={handleSubmit}>
-                <Label>USERNAME:</Label>
-                <Input
-                    value={username}
-                    onChange={content => setUsername(content)}
-                />
-                <Label>PASSWORD:</Label>
-                <Input
-                    type="password"
-                    value={password}
-                    onChange={content => setPassword(content)}
-                />
+                <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '20px'}}>
+                    <Label>USERNAME:</Label>
+                    <Input
+                        value={username}
+                        onChange={content => setUsername(content)}
+                    />
+                </div>
+                <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '20px'}}>
+                    <Label>PASSWORD:</Label>
+                    <Input
+                        type="password"
+                        value={password}
+                        onChange={content => setPassword(content)}
+                    />
+                </div>
                 <Button htmlType="submit" type="primary">Log in</Button>
             </form>
         </div>
