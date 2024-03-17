@@ -7,11 +7,13 @@ import HomePage from "./pages/HomePage.tsx";
 import DashBoardPage from "./pages/DashBoardPage.tsx";
 import ProjectPage from "./pages/ProjectPage.tsx";
 import UserPage from "./pages/UserPage.tsx";
-
+import LoginPage from "./pages/LoginPage.tsx";
+import {useState} from "react";
 
 
 const App = () => {
     const navigate = useNavigate();
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     return (
         <div className={styles.rootSidenavTab}>
@@ -84,6 +86,15 @@ const App = () => {
                         onClick={() => navigate('/users')}
 
                     />
+
+                    <Nav.Item
+                        itemKey="Login"
+                        text="Login"
+                        icon={<IconRadio className={styles.iconRadio}/>}
+                        className={styles.navItem5}
+                        onClick={() => navigate('/login')}
+
+                    />
                 </Nav>
                 <div id="main_panal" className={styles.mainRight}>
                     <Routes>
@@ -91,6 +102,7 @@ const App = () => {
                         <Route path="/dashboard" element={<DashBoardPage/>}/>
                         <Route path="/project" element={<ProjectPage/>}/>
                         <Route path="/users" element={<UserPage/>}/>
+                        <Route path="/login" element={<LoginPage/>} />
                     </Routes>
                 </div>
             </div>
