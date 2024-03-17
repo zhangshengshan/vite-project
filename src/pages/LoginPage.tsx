@@ -12,13 +12,12 @@ const LoginPage = ({setIsLoggedIn, onLoginSuccess}) => {
     const handleSubmit = (event) => {
         Notification.open({
             title: 'Hi, Bytedance',
-            content: 'dance dance dance',
+            content: 'username' + username + "    " + 'password' + password,
             duration: 3,
         })
         event.preventDefault();
         setIsLoggedIn(true);
         onLoginSuccess();
-        navigate('/home');
     };
 
     return (
@@ -28,13 +27,13 @@ const LoginPage = ({setIsLoggedIn, onLoginSuccess}) => {
                 <Label>USERNAME:</Label>
                 <Input
                     value={username}
-                    onChange={e => setUsername(e.target.value)}
+                    onChange={e => setUsername(e)}
                 />
                 <Label>PASSWORD:</Label>
                 <Input
                     type="password"
                     value={password}
-                    onChange={e => setPassword(e.target.value)}
+                    onChange={e => setPassword(e)}
                 />
                 <Button htmlType="submit" type="primary">Log in</Button>
             </form>
