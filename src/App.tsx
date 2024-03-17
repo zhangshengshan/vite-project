@@ -6,7 +6,6 @@ import {Route, Routes, useNavigate} from 'react-router-dom';
 import HomePage from "./pages/HomePage.tsx";
 import DashBoardPage from "./pages/DashBoardPage.tsx";
 import ExternalPage from "./pages/ExternalPage.tsx";
-import React from "react";
 import ProjectPage from "./pages/ProjectPage.tsx";
 
 
