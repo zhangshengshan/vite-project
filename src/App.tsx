@@ -5,8 +5,8 @@ import styles from './index.module.scss';
 import {Route, Routes, useNavigate} from 'react-router-dom';
 import HomePage from "./pages/HomePage.tsx";
 import DashBoardPage from "./pages/DashBoardPage.tsx";
-import ExternalPage from "./pages/ExternalPage.tsx";
 import ProjectPage from "./pages/ProjectPage.tsx";
+import UserPage from "./pages/UserPage.tsx";
 
 
 
@@ -90,7 +90,7 @@ const App = () => {
                         <Route path="/home" element={<HomePage/>}/>
                         <Route path="/dashboard" element={<DashBoardPage/>}/>
                         <Route path="/project" element={<ProjectPage/>}/>
-                        <Route path="/users" element={<ExternalPage/>}/>
+                        <Route path="/users" element={<UserPage/>}/>
                     </Routes>
                 </div>
             </div>
