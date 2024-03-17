@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 // import {useNavigate} from 'react-router-dom';
 import {Notification, Input, Button} from '@douyinfe/semi-ui';
 import styles from './LoginPage.module.scss';
@@ -9,6 +9,15 @@ const LoginPage = ({setIsLoggedIn, onLoginSuccess}) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+
+    useEffect(() => {
+        const loginTimestamp = localStorage.getItem('loginTimestamp');
+        if (loginTimestamp && Date.now() - Number(loginTimestamp) < 24 * 60 * 60 * 1000) {
+            setIsLoggedIn(true);
+            onLoginSuccess();
+        }
+    }, []);
+
     const handleSubmit = (event) => {
         Notification.open({
             title: 'Hi, Bytedance',
@@ -18,6 +27,8 @@ const LoginPage = ({setIsLoggedIn, onLoginSuccess}) => {
         event.preventDefault();
         setIsLoggedIn(true);
         onLoginSuccess();
+
+        localStorage.setItem('loginTimestamp', Date.now().toString());
     };
 
     return (
