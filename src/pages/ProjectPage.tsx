@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {Divider, Table, Input, Button} from "@douyinfe/semi-ui";
-import {columns, data} from "../mock/mockData.tsx";
+import {Divider, Table, Input, Button, Notification} from "@douyinfe/semi-ui";
+import {columns, data} from "../mocks/mockData.tsx";
 
 const ProjectPage = () => {
     // 筛选条件
@@ -20,12 +20,24 @@ const ProjectPage = () => {
 
         try {
             // 模拟向后端服务器发送请求并获取数据
-            const response = await fetch('http://localhost:8080/data');
+            const response = await fetch('https://localhost:8080/data');
             const newData = await response.json();
+
+            Notification.open({
+                title: 'Success',
+                content: newData.beautify(),
+                duration: 3,
+            });  //
 
             setTableData(newData);
         } catch (error) {
             console.error('Error:', error);
+            Notification.open({
+                title: 'Error',
+                content: error.message,
+                duration: 3,
+            });
+            setTableData(tableData);
         }
     };
 

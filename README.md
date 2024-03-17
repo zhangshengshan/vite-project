@@ -55,3 +55,9 @@ github_pat_11AB6TSJA07mKTqTguzlzP_FatXggxcJBwE4A5iZ7TZORCeptwNF3y9duFlBsInMPWJLV
 如果你的目录结构不是这样的，那么你需要根据你的实际目录结构来修改`distDir`的配置。例如，如果你的`dist`目录位于`src-tauri`目录的上一级目录中，那么你应该将`distDir`设置为`"../dist"`。
 
 希望这些信息能帮助你解决问题。
+
+
+
+
+https://blog.harveydelaney.com/setting-up-a-mock-api-for-your-front-end-react-project/
+https://miragejs.com/
