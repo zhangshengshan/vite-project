@@ -2,7 +2,6 @@ import {Divider, Table} from "@douyinfe/semi-ui";
 import {columns, data} from "../mock/mockData.tsx";
 
 const ProjectPage = () => {
-
     return (
         <div>
             <Divider></Divider>
@@ -10,6 +9,5 @@ const ProjectPage = () => {
             <Divider></Divider>
         </div>
     )
-
 }
 export default ProjectPage;
