@@ -27,13 +27,13 @@ const LoginPage = ({setIsLoggedIn, onLoginSuccess}) => {
                 <Label>USERNAME:</Label>
                 <Input
                     value={username}
-                    onChange={e => setUsername(e)}
+                    onChange={content => setUsername(content)}
                 />
                 <Label>PASSWORD:</Label>
                 <Input
                     type="password"
                     value={password}
-                    onChange={e => setPassword(e)}
+                    onChange={content => setPassword(content)}
                 />
                 <Button htmlType="submit" type="primary">Log in</Button>
             </form>
