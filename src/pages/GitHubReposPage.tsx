@@ -1,3 +1,4 @@
+import {Divider, Table} from '@douyinfe/semi-ui';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 
@@ -14,20 +15,22 @@ const ProjectPage = () => {
         });
     }, []);
 
+    const columns = [
+        {
+            title: '项目名称', dataIndex: 'name', key: 'name', render: (text, record, index) => {
+                return <a href={record.html_url} target="_blank" rel="noopener noreferrer">{text}</a>;
+            }
+        },
+    ];
+
     return (
         <div>
             {/* Other components */}
 
             <h2>My GitHub Projects</h2>
-            <ul>
-                {repos.map(repo => (
-                    <li key={repo.id}>
-                        <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
-                            {repo.name}
-                        </a>
-                    </li>
-                ))}
-            </ul>
+            <Divider/>
+
+            <Table dataSource={repos} columns={columns} rowKey="id" pagination={true}/>
 
             {/* Other components */}
         </div>
