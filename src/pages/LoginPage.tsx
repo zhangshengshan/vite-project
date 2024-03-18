@@ -12,7 +12,7 @@ const LoginPage = ({setIsLoggedIn, onLoginSuccess}) => {
 
     useEffect(() => {
         const loginTimestamp = localStorage.getItem('loginTimestamp');
-        if (loginTimestamp && Date.now() - Number(loginTimestamp) < 24 * 60 * 60 * 1000) {
+        if (loginTimestamp && Date.now() - Number(loginTimestamp) <  10 * 1000) {
             setIsLoggedIn(true);
             onLoginSuccess();
         }
@@ -29,6 +29,14 @@ const LoginPage = ({setIsLoggedIn, onLoginSuccess}) => {
         onLoginSuccess();
 
         localStorage.setItem('loginTimestamp', Date.now().toString());
+    };
+
+    const handleGithubLogin = () => {
+        const clientId = 'Iv1.4559ffd03e590dee';
+        const redirectUri = encodeURIComponent('http://localhost:5173/home');
+        window.location.href = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}`;
+        // setIsLoggedIn(true);
+        // onLoginSuccess();
     };
 
     return (
@@ -51,6 +59,7 @@ const LoginPage = ({setIsLoggedIn, onLoginSuccess}) => {
                     />
                 </div>
                 <Button htmlType="submit" type="primary">Log in</Button>
+                <Button onClick={handleGithubLogin} type="primary">Log in with GitHub</Button>
             </form>
         </div>
     );

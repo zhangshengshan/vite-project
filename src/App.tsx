@@ -6,9 +6,8 @@ import {Route, Routes, useNavigate} from 'react-router-dom';
 import HomePage from "./pages/HomePage.tsx";
 import DashBoardPage from "./pages/DashBoardPage.tsx";
 import ProjectPage from "./pages/ProjectPage.tsx";
-import UserPage from "./pages/UserPage.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import GitHubReposPage from "./pages/GitHubReposPage.tsx";
 
 
@@ -112,7 +111,7 @@ const App = () => {
                         </Nav>
                         <div id="main_panal" className={styles.mainRight}>
                             <Routes>
-                                <Route path="/home" element={<HomePage/>}/>
+                                <Route path="/home" element={<HomePage setIsLoggedIn={setIsLoggedIn} setShowLoginPopup={setShowLoginPopup}/>} />
                                 <Route path="/dashboard" element={<DashBoardPage/>}/>
                                 <Route path="/project" element={<ProjectPage/>}/>
                                 <Route path="/users" element={<GitHubReposPage/>}/>
