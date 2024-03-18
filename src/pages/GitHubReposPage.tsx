@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 import axios from 'axios';
 
 const ProjectPage = () => {
@@ -9,8 +9,9 @@ const ProjectPage = () => {
             const response = await axios.get('https://api.github.com/users/zhangshengshan/repos');
             setRepos(response.data);
         };
-
-        fetchRepos();
+        fetchRepos().then(r => {
+            console.log(r);
+        });
     }, []);
 
     return (

@@ -9,6 +9,7 @@ import ProjectPage from "./pages/ProjectPage.tsx";
 import UserPage from "./pages/UserPage.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
 import {useEffect, useState} from "react";
+import GitHubReposPage from "./pages/GitHubReposPage.tsx";
 
 
 const App = () => {
@@ -114,7 +115,7 @@ const App = () => {
                                 <Route path="/home" element={<HomePage/>}/>
                                 <Route path="/dashboard" element={<DashBoardPage/>}/>
                                 <Route path="/project" element={<ProjectPage/>}/>
-                                <Route path="/users" element={<UserPage/>}/>
+                                <Route path="/users" element={<GitHubReposPage/>}/>
                                 <Route path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn}
                                                                          onLoginSuccess={() => setShowLoginPopup(false)}/>}/>
                             </Routes>
