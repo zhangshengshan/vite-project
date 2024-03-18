@@ -56,11 +56,6 @@ const ProjectPage = () => {
                     }}
                     style={{ width: 176 }}
                 />
-                {/*<Form.Select field="Role" label={{ text: '角1111色', optional: true }} style={{ width: 176 }}>*/}
-                {/*    <Option value="admin">管理员</Option>*/}
-                {/*    <Option value="user">普通用户</Option>*/}
-                {/*    <Option value="guest">访客</Option>*/}
-                {/*</Form.Select>*/}
             </Form>
             <Divider></Divider>
             <Table columns={columns} dataSource={tableData} pagination={false}/>
