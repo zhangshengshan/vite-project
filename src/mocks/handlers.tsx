@@ -8,4 +8,10 @@ export const handlers = [
             data
         )
     }),
+
+    http.post('https://localhost:8080/data', () => {
+        return HttpResponse.json(
+            data
+        )
+    }),
 ]

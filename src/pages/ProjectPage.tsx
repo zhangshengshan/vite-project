@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import {Divider, Table, Input, Button, Notification} from "@douyinfe/semi-ui";
+import {Divider, Table, Input, Button} from "@douyinfe/semi-ui";
 import {columns, data} from "../mocks/mockData.tsx";
 
 const ProjectPage = () => {
@@ -18,7 +18,22 @@ const ProjectPage = () => {
 
         try {
             // 模拟向后端服务器发送请求并获取数据
-            const response = await fetch('https://localhost:8080/data');
+            // const response = await fetch('https://localhost:8080/data');
+            const data = {
+                key1: 'value1',
+                key2: 'value2',
+                // ...其他参数
+            };
+
+            // 发送POST请求
+            const response = await fetch('https://localhost:8080/data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
             const newData = await response.json();
             console.log(newData)
             setTableData(newData.concat(newData));
