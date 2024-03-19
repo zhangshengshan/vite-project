@@ -31,14 +31,12 @@ const HomePage = ({setIsLoggedIn, setShowLoginPopup}) => {
                         title: 'Error',
                         content: 'Failed to get access token',
                     });
-                    setIsLoggedIn(true);
-                    setShowLoginPopup(false);
                 }
             };
 
             getAccessToken();
         }
-    }, []);
+    }, [setIsLoggedIn, setShowLoginPopup]);
 
     // ...其他代码...
 };

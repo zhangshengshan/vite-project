@@ -1,5 +1,4 @@
 import express from "express";
-
 import axios from "axios";
 import cors from "cors";
 
@@ -8,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 app.post('/getAccessToken', async (req, res) => {
-    console.log(req.body)
+    // console.log(req.body)
     try {
         const {code, client_id, client_secret} = req.body
         console.log("code = ", code)
