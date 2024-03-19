@@ -1,4 +1,4 @@
-import {Nav, Avatar} from '@douyinfe/semi-ui';
+import {Nav, Avatar, Button} from '@douyinfe/semi-ui';
 import {IconSemiLogo, IconFeishuLogo, IconHelpCircle, IconBell} from '@douyinfe/semi-icons';
 import {IconIntro, IconHeart, IconCalendar, IconRadio} from '@douyinfe/semi-icons-lab';
 import styles from './index.module.scss';
@@ -7,23 +7,23 @@ import HomePage from "./pages/HomePage.tsx";
 import DashBoardPage from "./pages/DashBoardPage.tsx";
 import ProjectPage from "./pages/ProjectPage.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import GitHubReposPage from "./pages/GitHubReposPage.tsx";
 
 
 const App = () => {
     const navigate = useNavigate();
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [showLoginPopup, setShowLoginPopup] = useState(false);  // 添加这一行
+    const [showLoginPopup, setShowLoginPopup] = useState(true);  // 添加这一行
 
+
+    const handleLoginSuccess = () => {
+        console.log("onLoginSuccess called");
+        setShowLoginPopup(false);
+    };
 
     useEffect(() => {
-        // 这里你可以添加你的检查用户登录状态的逻辑
-        // 如果用户没有登录，就显示登录弹窗
-        if (!isLoggedIn) {
-            setShowLoginPopup(true);
-        }
+
     }, []);
 
     return (
@@ -111,19 +111,24 @@ const App = () => {
                         </Nav>
                         <div id="main_panal" className={styles.mainRight}>
                             <Routes>
-                                <Route path="/home" element={<HomePage setIsLoggedIn={setIsLoggedIn} setShowLoginPopup={setShowLoginPopup}/>} />
+                                <Route path="/home" element={<HomePage/>}/>
                                 <Route path="/dashboard" element={<DashBoardPage/>}/>
                                 <Route path="/project" element={<ProjectPage/>}/>
                                 <Route path="/users" element={<GitHubReposPage/>}/>
-                                <Route path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn}
+                                <Route path="/login" element={<LoginPage
                                                                          onLoginSuccess={() => setShowLoginPopup(false)}/>}/>
                             </Routes>
                         </div>
                     </div>
                 </div>
             }
-            {showLoginPopup &&
-                <LoginPage setIsLoggedIn={setIsLoggedIn} onLoginSuccess={() => setShowLoginPopup(false)}/>}
+            {showLoginPopup && <LoginPage onLoginSuccess={handleLoginSuccess} />}
+            <Button onClick={() => {
+                console.log("button clicked")
+                console.log("before showLoginPopup:", showLoginPopup)
+                console.log("after showLoginPopup:", showLoginPopup)
+
+            }}>TOGGLE_LOGIN_SHOW</Button>
         </div>
     )
         ;

@@ -2,12 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import {BrowserRouter as Router} from 'react-router-dom'
-import {worker} from "./mocks/worker.tsx";
+// import {worker} from "./mocks/worker.tsx";
 
 
-if (process.env.NODE_ENV === 'development') {
-    worker.start({serviceWorker: {url: '/mockServiceWorker.js'}})
-}
+// if (process.env.NODE_ENV === 'development') {
+//     worker.start({serviceWorker: {url: '/mockServiceWorker.js'}})
+// }
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
