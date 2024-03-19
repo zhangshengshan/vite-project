@@ -11,25 +11,31 @@ const HomePage = ({setIsLoggedIn, setShowLoginPopup}) => {
         if (code) {
             const getAccessToken = async () => {
                 try {
-                    const response = await axios.post('https://github.com/login/oauth/access_token', {
+                    const response = await axios.post('http://localhost:3000/getAccessToken', {
                         client_id: 'Iv1.4559ffd03e590dee',
                         client_secret: '9b96cd405e12c7a0c2f833705362097b159f927a',
                         code: code,
                     });
+
+
+                    console.log("===========================")
+                    console.log(response);
 
                     if (response.data.access_token) {
                         setIsLoggedIn(true);
                         setShowLoginPopup(false);
                     }
                 } catch (error) {
+                    console.log(error);
                     Notification.error({
                         title: 'Error',
                         content: 'Failed to get access token',
                     });
+                    setIsLoggedIn(true);
+                    setShowLoginPopup(false);
                 }
             };
-            setIsLoggedIn(true);
-            setShowLoginPopup(false);
+
             getAccessToken();
         }
     }, []);
