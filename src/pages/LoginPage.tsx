@@ -37,11 +37,22 @@ const LoginPage = ({onLoginSuccess}) => {
         window.location.href = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}`;
     };
 
+
+    const handleLarkLogin = () => {
+        // cli_a57308562635100e
+        const clientId = 'cli_a5d68d0ac1f9900b'; // 你在 Lark 开发者平台上创建的应用的 client_id
+        const redirectUri = encodeURIComponent('http://localhost:5173'); // 你在 Lark 开发者平台上设置的回调 URL
+        window.location.href = `https://open.larksuite.com/open-apis/authen/v1/index?app_id=${clientId}&redirect_uri=${redirectUri}`;
+    };
+
     return (
         <div>
             <button onClick={handleGithubLogin}>Log in with GitHub</button>
+            <button onClick={handleLarkLogin}>Log in with Lark</button>
             {/* Other components */}
         </div>
+
+
     );
 };
 
