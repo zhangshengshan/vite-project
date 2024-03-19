@@ -99,7 +99,6 @@ const App = () => {
                                 onClick={() => navigate('/users')}
 
                             />
-
                             <Nav.Item
                                 itemKey="Login"
                                 text="Login"
@@ -116,13 +115,13 @@ const App = () => {
                                 <Route path="/project" element={<ProjectPage/>}/>
                                 <Route path="/users" element={<GitHubReposPage/>}/>
                                 <Route path="/login" element={<LoginPage
-                                                                         onLoginSuccess={() => setShowLoginPopup(false)}/>}/>
+                                    onLoginSuccess={() => setShowLoginPopup(false)}/>}/>
                             </Routes>
                         </div>
                     </div>
                 </div>
             }
-            {showLoginPopup && <LoginPage onLoginSuccess={handleLoginSuccess} />}
+            {showLoginPopup && <LoginPage onLoginSuccess={handleLoginSuccess}/>}
             <Button onClick={() => {
                 console.log("button clicked")
                 console.log("before showLoginPopup:", showLoginPopup)
