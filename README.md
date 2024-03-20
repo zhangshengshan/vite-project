@@ -61,3 +61,50 @@ github_pat_11AB6TSJA07mKTqTguzlzP_FatXggxcJBwE4A5iZ7TZORCeptwNF3y9duFlBsInMPWJLV
 
 https://blog.harveydelaney.com/setting-up-a-mock-api-for-your-front-end-react-project/
 https://miragejs.com/
+
+
+当然，除了使用 Visual Studio 或 MinGW-w64，你还可以选择使用 LLVM 作为 Rust 的链接器。以下是安装步骤：  
+访问 LLVM 的官方网站或者其他可信赖的下载源，下载 LLVM 的安装包。
+运行安装程序，按照提示完成安装。
+安装完成后，将 LLVM 的 bin 目录添加到你的系统 PATH 中。你可以通过编辑系统环境变量来完成这个操作。
+重启你的计算机或者重新打开你的终端，然后运行 clang --version 来检查是否安装成功。如果能看到 clang 的版本信息，那么就说明你已经成功安装了 LLVM。
+然后，你需要告诉 Rust 使用 LLVM 的链接器。你可以通过在你的项目的 .cargo 目录下创建一个名为 config 的文件来完成这个操作。在这个文件中，添加以下内容：
+
+[target.x86_64-pc-windows-gnu]
+linker = "clang"
+ar = "llvm-ar"
+
+
+这个配置告诉 Rust 对于 x86_64-pc-windows-gnu 目标，使用 clang 作为链接器，使用 llvm-ar 作为 ar 工具。  请注意，你需要根据你的系统架构和 LLVM 的安装情况，将上述配置中的 x86_64-pc-windows-gnu、clang 和 llvm-ar 替换为实际的值。  完成以上步骤后，你应该就可以使用 Rust 编译你的项目了。
+
+
+
+如果你觉得安装 Visual Studio 太大，你可以尝试安装 Visual Studio Build Tools，它是 Visual Studio 的一个轻量级版本，只包含编译工具，不包含 IDE。以下是安装步骤：
+
+1. 访问 Visual Studio 的官方下载页面，找到并下载 Visual Studio Build Tools 的安装程序。
+
+2. 运行安装程序，按照提示完成安装。在安装过程中，确保选择了 C++ 构建工具。
+
+3. 安装完成后，重启你的计算机或者重新打开你的终端，然后再次尝试编译你的 Rust 程序。
+
+如果你不想安装任何 Microsoft 的产品，你还可以尝试使用 MinGW-w64 作为 Rust 的链接器。以下是安装步骤：
+
+1. 访问 MinGW-w64 的官方网站或者其他可信赖的下载源，下载 MinGW-w64 的安装包。
+
+2. 运行安装程序，按照提示完成安装。
+
+3. 安装完成后，将 MinGW-w64 的 bin 目录添加到你的系统 PATH 中。你可以通过编辑系统环境变量来完成这个操作。
+
+4. 重启你的计算机或者重新打开你的终端，然后运行 gcc --version 来检查是否安装成功。如果能看到 gcc 的版本信息，那么就说明你已经成功安装了 MinGW-w64。
+
+然后，你需要告诉 Rust 使用 MinGW-w64 的链接器。你可以通过在你的项目的 .cargo 目录下创建一个名为 config 的文件来完成这个操作。在这个文件中，添加以下内容：
+
+```toml
+[target.x86_64-pc-windows-gnu]
+linker = "x86_64-w64-mingw32-gcc"
+ar = "x86_64-w64-mingw32-ar"
+```
+
+这个配置告诉 Rust 对于 x86_64-pc-windows-gnu 目标，使用 x86_64-w64-mingw32-gcc 作为链接器，使用 x86_64-w64-mingw32-ar 作为 ar 工具。请注意，你需要根据你的系统架构和 MinGW-w64 的安装情况，将上述配置中的 x86_64-pc-windows-gnu、x86_64-w64-mingw32-gcc 和 x86_64-w64-mingw32-ar 替换为实际的值。
+
+完成以上步骤后，你应该就可以使用 Rust 编译你的项目了。
